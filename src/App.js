@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
+import Home from './Home/Home';
+import withTracker from './withTracker';
 
 class App extends Component {
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Avery Team, LLC</h1>
-          <h2> Real Estate Company</h2>
-        </header>
-        <p className="App-intro">
-          Welcome to Avery Team, LLC. Your full service real estate partner
-        </p>
-        <div> Pay My Bill </div>
-      </div>
+      <Switch>
+        <Route exact path="/" component={withTracker(Home, { /* additional attributes */ })} />
+      </Switch>
     );
   }
 }
